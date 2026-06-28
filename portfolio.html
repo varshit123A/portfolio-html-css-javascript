@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Akkala Varshit Sai | Portfolio</title>
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -216,6 +215,14 @@
             margin-bottom: 48px;
         }
 
+        .section-description {
+            color: var(--text-secondary);
+            font-size: 16px;
+            line-height: 1.6;
+            max-width: 700px;
+            margin-bottom: 40px;
+        }
+
         /* Skills Grid */
         .skills-grid {
             display: flex;
@@ -254,7 +261,7 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            min-height: 200px;
+            min-height: 240px;
             transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s;
             text-decoration: none;
             color: inherit;
@@ -263,6 +270,13 @@
         .project-card:hover {
             transform: translateY(-4px);
             border-color: var(--accent);
+        }
+
+        /* Internal layout fix for content flow inside card links */
+        .project-content {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
         }
 
         .project-header {
@@ -292,6 +306,7 @@
             font-size: 12px;
             font-weight: 500;
             color: var(--text-secondary);
+            margin-top: auto; /* Guarantees footer sticks to the bottom */
         }
 
         .project-lang {
@@ -434,7 +449,6 @@
 </head>
 <body>
 
-    <!-- Sticky Navigation -->
     <header>
         <div class="container nav-container">
             <a href="#" class="logo">AVS</a>
@@ -453,10 +467,8 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
     <main class="container">
         <section id="hero">
-            
             <div class="badge">Available for Roles</div>
             <h1>Hi, I'm <span>Akkala Varshit Sai</span></h1>
             <p class="subtitle">Full Stack Developer | AI Enthusiast | CSE Undergraduate</p>
@@ -466,14 +478,12 @@
             </div>
         </section>
 
-        <!-- About Section -->
         <section id="about" class="reveal">
             <p class="section-label">Background</p>
             <h2 class="section-title">About Me</h2>
             <p class="subtitle" style="max-width: 100%;"> Hello! I'm Varshit Sai Akkala, a final-year Computer Science and Engineering student at the National Institute of Technology (NIT) Silchar. I am passionate about creating software that is efficient, scalable, and impactful. My interests lie in full-stack development, software engineering, and AI-powered applications, where I enjoy solving complex problems through clean architecture and strong engineering principles. Over the past few years, I have built projects ranging from full-stack web platforms and intelligent document assistants to smart navigation systems, gaining hands-on experience with React, Node.js, Firebase, Python, and modern development tools. I actively strengthen my technical foundation through competitive programming and have solved 500+ coding problems on LeetCode. I am always eager to learn new technologies, collaborate with talented teams, and contribute to building products that create meaningful value. </p>
         </section>
 
-        <!-- Skills Section (Auto-extracted from domain) -->
         <section id="skills" class="reveal">
             <p class="section-label">Expertise</p>
             <h2 class="section-title">Skills & Technologies</h2>
@@ -493,264 +503,163 @@
             </div>
         </section>
 
-        <!-- Projects Section (Asynchronous GitHub integration with pristine fallbacks) -->
-    <!-- ==================== PROJECTS ==================== -->
-<section id="projects" class="reveal">
+        <section id="projects" class="reveal">
+            <p class="section-label">PROJECTS</p>
+            <h2 class="section-title">
+                Things I've <span style="color:#8b5cf6;">Built</span>
+            </h2>
+            <p class="section-description">
+                A selection of AI, Full-Stack, and Algorithmic projects demonstrating
+                my passion for software engineering, problem solving, and modern web
+                development.
+            </p>
 
-    <p class="section-label">PROJECTS</p>
+            <div class="projects-grid" id="github-projects">
 
-    <h2 class="section-title">
-        Things I've <span style="color:#8b5cf6;">Built</span>
-    </h2>
+                <a href="https://smart-campus-navigation-system-t4b0.onrender.com/"
+                   target="_blank"
+                   rel="noopener"
+                   class="project-card">
+                    <div class="project-content">
+                        <div class="project-header">
+                            <h3 class="project-title">Smart Campus Navigation System</h3>
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="7" y1="17" x2="17" y2="7"></line>
+                                <polyline points="7 7 17 7 17 17"></polyline>
+                            </svg>
+                        </div>
+                        <p class="project-desc">
+                            Developed a full-stack campus navigation platform using
+                            Dijkstra's Algorithm to compute optimal routes between
+                            campus landmarks. Built with React.js, Node.js and Firebase
+                            for interactive navigation and real-time data.
+                        </p>
+                    </div>
+                    <div class="project-footer">
+                        <span class="project-lang">
+                            <span class="lang-dot"></span>
+                            React • Node.js • Firebase
+                        </span>
+                        <span>Live Demo ↗</span>
+                    </div>
+                </a>
 
-    <p class="section-description">
-        A selection of AI, Full-Stack, and Algorithmic projects demonstrating
-        my passion for software engineering, problem solving, and modern web
-        development.
-    </p>
+                <a href="https://multilingual-ai-document-assistant-45qy2z3cvjyoq5kyizelp6.streamlit.app/"
+                   target="_blank"
+                   rel="noopener"
+                   class="project-card">
+                    <div class="project-content">
+                        <div class="project-header">
+                            <h3 class="project-title">Multilingual AI Document Assistant</h3>
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="7" y1="17" x2="17" y2="7"></line>
+                                <polyline points="7 7 17 7 17 17"></polyline>
+                            </svg>
+                        </div>
+                        <p class="project-desc">
+                            AI-powered document assistant supporting PDF summarization,
+                            multilingual translation, document question answering and
+                            text-to-speech using Python, Streamlit and Google Gemini AI.
+                        </p>
+                    </div>
+                    <div class="project-footer">
+                        <span class="project-lang">
+                            <span class="lang-dot"></span>
+                            Python • Gemini AI
+                        </span>
+                        <span>Live Demo ↗</span>
+                    </div>
+                </a>
 
-    <div class="projects-grid">
+                <a href="https://codeastra2026-web.web.app/"
+                   target="_blank"
+                   rel="noopener"
+                   class="project-card">
+                    <div class="project-content">
+                        <div class="project-header">
+                            <h3 class="project-title">CODEASTRA 2026</h3>
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="7" y1="17" x2="17" y2="7"></line>
+                                <polyline points="7 7 17 7 17 17"></polyline>
+                            </svg>
+                        </div>
+                        <p class="project-desc">
+                            Full-stack hackathon management platform supporting secure
+                            authentication, coding assessments, GitHub submissions,
+                            role-based administration and real-time competition
+                            management using React, TypeScript and Firebase.
+                        </p>
+                    </div>
+                    <div class="project-footer">
+                        <span class="project-lang">
+                            <span class="lang-dot"></span>
+                            React • TypeScript • Firebase
+                        </span>
+                        <span>Live Demo ↗</span>
+                    </div>
+                </a>
 
-        <!-- Smart Campus Navigation -->
-        <a href="https://smart-campus-navigation-system-t4b0.onrender.com/"
-           target="_blank"
-           rel="noopener"
-           class="project-card">
+                <a href="https://github.com/varshit123A/Gold-Business-Management-System"
+                   target="_blank"
+                   rel="noopener"
+                   class="project-card">
+                    <div class="project-content">
+                        <div class="project-header">
+                            <h3 class="project-title">Gold Business Management System</h3>
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="7" y1="17" x2="17" y2="7"></line>
+                                <polyline points="7 7 17 7 17 17"></polyline>
+                            </svg>
+                        </div>
+                        <p class="project-desc">
+                            Console-based business management application developed
+                            using C++ and Object-Oriented Programming to manage customer
+                            records, purchase history, billing and gold transactions
+                            using efficient file handling techniques.
+                        </p>
+                    </div>
+                    <div class="project-footer">
+                        <span class="project-lang">
+                            <span class="lang-dot"></span>
+                            C++ • OOP
+                        </span>
+                        <span>GitHub ↗</span>
+                    </div>
+                </a>
 
-            <div class="project-content">
+            </div>
+        </section>
 
-                <div class="project-header">
-                    <h3 class="project-title">Smart Campus Navigation System</h3>
-
-                    <svg width="18" height="18" viewBox="0 0 24 24"
-                         fill="none" stroke="currentColor" stroke-width="2">
-                        <line x1="7" y1="17" x2="17" y2="7"></line>
-                        <polyline points="7 7 17 7 17 17"></polyline>
-                    </svg>
-
+        <section id="education" class="reveal">
+            <p class="section-label">Journey</p>
+            <h2 class="section-title">Education</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-meta">Aug 2023 – Jun 2027 (Expected)</div>
+                    <h3 class="timeline-title">Bachelor of Technology (B.Tech) in Computer Science & Engineering</h3>
+                    <p class="timeline-sub">National Institute of Technology (NIT) Silchar, Assam</p>
+                    <p class="timeline-desc"><strong>CGPA:</strong> 8.16</p>
                 </div>
 
-                <p class="project-desc">
-                    Developed a full-stack campus navigation platform using
-                    Dijkstra's Algorithm to compute optimal routes between
-                    campus landmarks. Built with React.js, Node.js and Firebase
-                    for interactive navigation and real-time data.
-                </p>
-
-            </div>
-
-            <div class="project-footer">
-
-                <span class="project-lang">
-                    <span class="lang-dot"></span>
-                    React • Node.js • Firebase
-                </span>
-
-                <span>Live Demo ↗</span>
-
-            </div>
-
-        </a>
-
-
-
-        <!-- AI Assistant -->
-
-        <a href="https://multilingual-ai-document-assistant-45qy2z3cvjyoq5kyizelp6.streamlit.app/"
-           target="_blank"
-           rel="noopener"
-           class="project-card">
-
-            <div class="project-content">
-
-                <div class="project-header">
-
-                    <h3 class="project-title">
-                        Multilingual AI Document Assistant
-                    </h3>
-
-                    <svg width="18" height="18" viewBox="0 0 24 24"
-                         fill="none" stroke="currentColor" stroke-width="2">
-                        <line x1="7" y1="17" x2="17" y2="7"></line>
-                        <polyline points="7 7 17 7 17 17"></polyline>
-                    </svg>
-
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-meta">Jul 2021 – Jun 2023</div>
+                    <h3 class="timeline-title">Higher Secondary Certificate (Class XII)</h3>
+                    <p class="timeline-sub">Sri Chaitanya Junior College, Vijayawada, Andhra Pradesh</p>
+                    <p class="timeline-desc"><strong>Percentage:</strong> 98.1%</p>
                 </div>
 
-                <p class="project-desc">
-                    AI-powered document assistant supporting PDF summarization,
-                    multilingual translation, document question answering and
-                    text-to-speech using Python, Streamlit and Google Gemini AI.
-                </p>
-
-            </div>
-
-            <div class="project-footer">
-
-                <span class="project-lang">
-                    <span class="lang-dot"></span>
-                    Python • Gemini AI
-                </span>
-
-                <span>Live Demo ↗</span>
-
-            </div>
-
-        </a>
-
-
-
-        <!-- CodeAstra -->
-
-        <a href="https://codeastra2026-web.web.app/"
-           target="_blank"
-           rel="noopener"
-           class="project-card">
-
-            <div class="project-content">
-
-                <div class="project-header">
-
-                    <h3 class="project-title">
-                        CODEASTRA 2026
-                    </h3>
-
-                    <svg width="18" height="18" viewBox="0 0 24 24"
-                         fill="none" stroke="currentColor" stroke-width="2">
-                        <line x1="7" y1="17" x2="17" y2="7"></line>
-                        <polyline points="7 7 17 7 17 17"></polyline>
-                    </svg>
-
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-meta">Jun 2011 – May 2021</div>
+                    <h3 class="timeline-title">Secondary School Certificate (Class X)</h3>
+                    <p class="timeline-sub">Sri Chaitanya Techno School, Amalapuram, Andhra Pradesh</p>
+                    <p class="timeline-desc"><strong>Percentage:</strong> 99%</p>
                 </div>
-
-                <p class="project-desc">
-                    Full-stack hackathon management platform supporting secure
-                    authentication, coding assessments, GitHub submissions,
-                    role-based administration and real-time competition
-                    management using React, TypeScript and Firebase.
-                </p>
-
             </div>
+        </section>
 
-            <div class="project-footer">
-
-                <span class="project-lang">
-                    <span class="lang-dot"></span>
-                    React • TypeScript • Firebase
-                </span>
-
-                <span>Live Demo ↗</span>
-
-            </div>
-
-        </a>
-
-
-
-        <!-- Gold Business -->
-
-        <a href="https://github.com/varshit123A/Gold-Business-Management-System"
-           target="_blank"
-           rel="noopener"
-           class="project-card">
-
-            <div class="project-content">
-
-                <div class="project-header">
-
-                    <h3 class="project-title">
-                        Gold Business Management System
-                    </h3>
-
-                    <svg width="18" height="18" viewBox="0 0 24 24"
-                         fill="none" stroke="currentColor" stroke-width="2">
-                        <line x1="7" y1="17" x2="17" y2="7"></line>
-                        <polyline points="7 7 17 7 17 17"></polyline>
-                    </svg>
-
-                </div>
-
-                <p class="project-desc">
-                    Console-based business management application developed
-                    using C++ and Object-Oriented Programming to manage customer
-                    records, purchase history, billing and gold transactions
-                    using efficient file handling techniques.
-                </p>
-
-            </div>
-
-            <div class="project-footer">
-
-                <span class="project-lang">
-                    <span class="lang-dot"></span>
-                    C++ • OOP
-                </span>
-
-                <span>GitHub ↗</span>
-
-            </div>
-
-        </a>
-
-    </div>
-
-</section>
-       <!-- Education Section -->
-<section id="education" class="reveal">
-    <p class="section-label">Journey</p>
-    <h2 class="section-title">Education</h2>
-
-    <div class="timeline">
-
-        <!-- B.Tech -->
-        <div class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-meta">Aug 2023 – Jun 2027 (Expected)</div>
-            <h3 class="timeline-title">
-                Bachelor of Technology (B.Tech) in Computer Science & Engineering
-            </h3>
-            <p class="timeline-sub">
-                National Institute of Technology (NIT) Silchar, Assam
-            </p>
-            <p class="timeline-desc">
-                <strong>CGPA:</strong> 8.16 
-            </p>
-        </div>
-
-        <!-- Intermediate -->
-        <div class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-meta">Jul 2021 – Jun 2023</div>
-            <h3 class="timeline-title">
-                Higher Secondary Certificate (Class XII)
-            </h3>
-            <p class="timeline-sub">
-                Sri Chaitanya Junior College, Vijayawada, Andhra Pradesh
-            </p>
-            <p class="timeline-desc">
-                <strong>Percentage:</strong> 98.1%
-            </p>
-        </div>
-
-        <!-- SSC -->
-        <div class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-meta">Jun 2011 – May 2021</div>
-            <h3 class="timeline-title">
-                Secondary School Certificate (Class X)
-            </h3>
-            <p class="timeline-sub">
-                Sri Chaitanya Techno School, Amalapuram, Andhra Pradesh
-            </p>
-            <p class="timeline-desc">
-                <strong>Percentage:</strong> 99%
-            </p>
-        </div>
-
-    </div>
-</section>
-
-        <!-- Contact Section -->
         <section id="contact" class="reveal" style="border-bottom: none;">
             <p class="section-label">Connect</p>
             <h2 class="section-title">Start a Conversation</h2>
@@ -781,7 +690,6 @@
         </div>
     </footer>
 
-    <!-- Scripts for dynamic functionality & styling -->
     <script>
         // Dark Mode Toggle Logic
         const themeToggle = document.getElementById('theme-toggle');
@@ -822,11 +730,11 @@
                 const repos = await response.json();
                 
                 if(repos.length > 0) {
-                    targetContainer.innerHTML = ''; // Clean fallback items if repos exist
+                    // CORRECTED: Removed targetContainer.innerHTML = ''; so that your 4 custom featured items do not get wiped out!
                     
                     repos.forEach(repo => {
                         if (!repo.fork) {
-                            const description = repo.description || "A pristine repository housing development components and engineering frameworks.";
+                            const description = repo.description || "A repository housing development components and engineering frameworks.";
                             const language = repo.language || "Source";
                             const card = document.createElement('a');
                             card.href = repo.html_url;
@@ -842,7 +750,7 @@
                                 </div>
                                 <div class="project-footer">
                                     <span class="project-lang"><span class="lang-dot"></span>${language}</span>
-                                    <span>View Repository</span>
+                                    <span>View Repository ↗</span>
                                 </div>
                             `;
                             targetContainer.appendChild(card);
