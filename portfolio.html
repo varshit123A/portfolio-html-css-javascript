@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Akkala Varshit Sai | Portfolio</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f5f5f7;
+            --text-primary: #1d1d1f;
+            --text-secondary: #86868b;
+            --accent: #8b5cf6;
+            --accent-light: #ddd6fe;
+            --accent-glow: rgba(139, 92, 246, 0.15);
+            --border: #e5e7eb;
+            --nav-bg: rgba(255, 255, 255, 0.72);
+        }
+
+        html.dark {
+            --bg-primary: #000000;
+            --bg-secondary: #161617;
+            --text-primary: #f5f5f7;
+            --text-secondary: #86868b;
+            --accent: #a78bfa;
+            --accent-light: #2e1065;
+            --accent-glow: rgba(167, 139, 250, 0.2);
+            --border: #2d2d2f;
+            --nav-bg: rgba(0, 0, 0, 0.72);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            transition: background-color 0.4s ease, color 0.4s ease;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Layout & Containers */
+        .container {
+            max-width: 1040px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        section {
+            padding: 120px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        /* Header / Navbar */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: var(--nav-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+            transition: background-color 0.4s;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 64px;
+        }
+
+        .logo {
+            font-size: 18px;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+            text-decoration: none;
+            color: var(--text-primary);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-primary);
+        }
+
+        .theme-toggle {
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            cursor: pointer;
+            padding: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Hero Section */
+        #hero {
+            padding-top: 180px;
+            padding-bottom: 120px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 24px;
+        }
+
+        .badge {
+            background-color: var(--accent-glow);
+            color: var(--accent);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: -0.1px;
+            border: 1px solid rgba(167, 139, 250, 0.3);
+        }
+
+        h1 {
+            font-size: 64px;
+            font-weight: 700;
+            letter-spacing: -2px;
+            line-height: 1.1;
+            max-width: 800px;
+        }
+
+        h1 span {
+            color: var(--accent);
+        }
+
+        .subtitle {
+            font-size: 22px;
+            color: var(--text-secondary);
+            max-width: 640px;
+            font-weight: 400;
+            line-height: 1.5;
+        }
+
+        .cta-group {
+            display: flex;
+            gap: 16px;
+            margin-top: 16px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .btn-primary {
+            background-color: var(--text-primary);
+            color: var(--bg-primary);
+        }
+
+        .btn-primary:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+
+        .btn-secondary {
+            border: 1px solid var(--border);
+            color: var(--text-primary);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--bg-secondary);
+        }
+
+        /* Section Typography */
+        .section-label {
+            color: var(--accent);
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 12px;
+        }
+
+        .section-title {
+            font-size: 36px;
+            font-weight: 700;
+            letter-spacing: -1px;
+            margin-bottom: 48px;
+        }
+
+        /* Skills Grid */
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            max-width: 800px;
+        }
+
+        .skill-tag {
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border);
+            padding: 10px 18px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-primary);
+            transition: border-color 0.2s;
+        }
+
+        .skill-tag:hover {
+            border-color: var(--accent);
+        }
+
+        /* Projects Grid (Dynamic GitHub Repos) */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 24px;
+        }
+
+        .project-card {
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 32px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 200px;
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .project-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent);
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 16px;
+        }
+
+        .project-title {
+            font-size: 20px;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+        }
+
+        .project-desc {
+            color: var(--text-secondary);
+            font-size: 14px;
+            line-height: 1.5;
+            margin-bottom: 24px;
+        }
+
+        .project-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--text-secondary);
+        }
+
+        .project-lang {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .lang-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: var(--accent);
+        }
+
+        /* Timeline (Education & Experience Alternative) */
+        .timeline {
+            max-width: 800px;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 32px;
+            padding-bottom: 40px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 6px;
+            bottom: 0;
+            width: 1px;
+            background-color: var(--border);
+        }
+
+        .timeline-item:last-child::before {
+            display: none;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: -4px;
+            top: 6px;
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            background-color: var(--accent);
+        }
+
+        .timeline-meta {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-bottom: 4px;
+            font-weight: 500;
+        }
+
+        .timeline-title {
+            font-size: 22px;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+            margin-bottom: 6px;
+        }
+
+        .timeline-sub {
+            font-size: 15px;
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+        }
+
+        /* Contact Details */
+        .contact-box {
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 40px;
+            max-width: 600px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .contact-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .contact-row:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .contact-label {
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        .contact-value {
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--text-primary);
+            text-decoration: none;
+        }
+
+        .contact-value:hover {
+            color: var(--accent);
+        }
+
+        footer {
+            padding: 48px 0;
+            text-align: center;
+            font-size: 13px;
+            color: var(--text-secondary);
+            border-top: 1px solid var(--border);
+        }
+
+        /* Animation utilities */
+        .reveal {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive Settings */
+        @media (max-width: 768px) {
+            h1 { font-size: 44px; letter-spacing: -1px; }
+            .subtitle { font-size: 18px; }
+            section { padding: 80px 0; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Sticky Navigation -->
+    <header>
+        <div class="container nav-container">
+            <a href="#" class="logo">AVS</a>
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#projects">Projects</a>
+                <a href="#education">Education</a>
+                <a href="#contact">Contact</a>
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+                    <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <main class="container">
+        <section id="hero">
+            
+            <div class="badge">Available for Roles</div>
+            <h1>Hi, I'm <span>Akkala Varshit Sai</span></h1>
+            <p class="subtitle">Full Stack Developer | AI Enthusiast | CSE Undergraduate</p>
+            <div class="cta-group">
+                <a href="#contact" class="btn btn-primary">Get in touch</a>
+                <a href="https://github.com/varshit123A" target="_blank" rel="noopener" class="btn btn-secondary">GitHub Profile</a>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="reveal">
+            <p class="section-label">Background</p>
+            <h2 class="section-title">About Me</h2>
+            <p class="subtitle" style="max-width: 100%;"> Hello! I'm Varshit Sai Akkala, a final-year Computer Science and Engineering student at the National Institute of Technology (NIT) Silchar. I am passionate about creating software that is efficient, scalable, and impactful. My interests lie in full-stack development, software engineering, and AI-powered applications, where I enjoy solving complex problems through clean architecture and strong engineering principles. Over the past few years, I have built projects ranging from full-stack web platforms and intelligent document assistants to smart navigation systems, gaining hands-on experience with React, Node.js, Firebase, Python, and modern development tools. I actively strengthen my technical foundation through competitive programming and have solved 500+ coding problems on LeetCode. I am always eager to learn new technologies, collaborate with talented teams, and contribute to building products that create meaningful value. </p>
+        </section>
+
+        <!-- Skills Section (Auto-extracted from domain) -->
+        <section id="skills" class="reveal">
+            <p class="section-label">Expertise</p>
+            <h2 class="section-title">Skills & Technologies</h2>
+            <div class="skills-grid">
+                <div class="skill-tag">Data Structures & Algorithms</div>
+                <div class="skill-tag">Full-Stack Development</div>
+                <div class="skill-tag">Artificial Intelligence</div>
+                <div class="skill-tag">C++</div>
+                <div class="skill-tag">C</div>
+                <div class="skill-tag">Python</div>
+                <div class="skill-tag">JavaScript</div>
+                <div class="skill-tag">React.js</div>
+                <div class="skill-tag">Node.js</div>
+                <div class="skill-tag">System Design</div>
+                <div class="skill-tag">Database Management Systems</div>
+                <div class="skill-tag">Operating Systems</div>
+            </div>
+        </section>
+
+        <!-- Projects Section (Asynchronous GitHub integration with pristine fallbacks) -->
+    <!-- ==================== PROJECTS ==================== -->
+<section id="projects" class="reveal">
+
+    <p class="section-label">PROJECTS</p>
+
+    <h2 class="section-title">
+        Things I've <span style="color:#8b5cf6;">Built</span>
+    </h2>
+
+    <p class="section-description">
+        A selection of AI, Full-Stack, and Algorithmic projects demonstrating
+        my passion for software engineering, problem solving, and modern web
+        development.
+    </p>
+
+    <div class="projects-grid">
+
+        <!-- Smart Campus Navigation -->
+        <a href="https://smart-campus-navigation-system-t4b0.onrender.com/"
+           target="_blank"
+           rel="noopener"
+           class="project-card">
+
+            <div class="project-content">
+
+                <div class="project-header">
+                    <h3 class="project-title">Smart Campus Navigation System</h3>
+
+                    <svg width="18" height="18" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="7" y1="17" x2="17" y2="7"></line>
+                        <polyline points="7 7 17 7 17 17"></polyline>
+                    </svg>
+
+                </div>
+
+                <p class="project-desc">
+                    Developed a full-stack campus navigation platform using
+                    Dijkstra's Algorithm to compute optimal routes between
+                    campus landmarks. Built with React.js, Node.js and Firebase
+                    for interactive navigation and real-time data.
+                </p>
+
+            </div>
+
+            <div class="project-footer">
+
+                <span class="project-lang">
+                    <span class="lang-dot"></span>
+                    React • Node.js • Firebase
+                </span>
+
+                <span>Live Demo ↗</span>
+
+            </div>
+
+        </a>
+
+
+
+        <!-- AI Assistant -->
+
+        <a href="https://multilingual-ai-document-assistant-45qy2z3cvjyoq5kyizelp6.streamlit.app/"
+           target="_blank"
+           rel="noopener"
+           class="project-card">
+
+            <div class="project-content">
+
+                <div class="project-header">
+
+                    <h3 class="project-title">
+                        Multilingual AI Document Assistant
+                    </h3>
+
+                    <svg width="18" height="18" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="7" y1="17" x2="17" y2="7"></line>
+                        <polyline points="7 7 17 7 17 17"></polyline>
+                    </svg>
+
+                </div>
+
+                <p class="project-desc">
+                    AI-powered document assistant supporting PDF summarization,
+                    multilingual translation, document question answering and
+                    text-to-speech using Python, Streamlit and Google Gemini AI.
+                </p>
+
+            </div>
+
+            <div class="project-footer">
+
+                <span class="project-lang">
+                    <span class="lang-dot"></span>
+                    Python • Gemini AI
+                </span>
+
+                <span>Live Demo ↗</span>
+
+            </div>
+
+        </a>
+
+
+
+        <!-- CodeAstra -->
+
+        <a href="https://codeastra2026-web.web.app/"
+           target="_blank"
+           rel="noopener"
+           class="project-card">
+
+            <div class="project-content">
+
+                <div class="project-header">
+
+                    <h3 class="project-title">
+                        CODEASTRA 2026
+                    </h3>
+
+                    <svg width="18" height="18" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="7" y1="17" x2="17" y2="7"></line>
+                        <polyline points="7 7 17 7 17 17"></polyline>
+                    </svg>
+
+                </div>
+
+                <p class="project-desc">
+                    Full-stack hackathon management platform supporting secure
+                    authentication, coding assessments, GitHub submissions,
+                    role-based administration and real-time competition
+                    management using React, TypeScript and Firebase.
+                </p>
+
+            </div>
+
+            <div class="project-footer">
+
+                <span class="project-lang">
+                    <span class="lang-dot"></span>
+                    React • TypeScript • Firebase
+                </span>
+
+                <span>Live Demo ↗</span>
+
+            </div>
+
+        </a>
+
+
+
+        <!-- Gold Business -->
+
+        <a href="https://github.com/varshit123A/Gold-Business-Management-System"
+           target="_blank"
+           rel="noopener"
+           class="project-card">
+
+            <div class="project-content">
+
+                <div class="project-header">
+
+                    <h3 class="project-title">
+                        Gold Business Management System
+                    </h3>
+
+                    <svg width="18" height="18" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="7" y1="17" x2="17" y2="7"></line>
+                        <polyline points="7 7 17 7 17 17"></polyline>
+                    </svg>
+
+                </div>
+
+                <p class="project-desc">
+                    Console-based business management application developed
+                    using C++ and Object-Oriented Programming to manage customer
+                    records, purchase history, billing and gold transactions
+                    using efficient file handling techniques.
+                </p>
+
+            </div>
+
+            <div class="project-footer">
+
+                <span class="project-lang">
+                    <span class="lang-dot"></span>
+                    C++ • OOP
+                </span>
+
+                <span>GitHub ↗</span>
+
+            </div>
+
+        </a>
+
+    </div>
+
+</section>
+       <!-- Education Section -->
+<section id="education" class="reveal">
+    <p class="section-label">Journey</p>
+    <h2 class="section-title">Education</h2>
+
+    <div class="timeline">
+
+        <!-- B.Tech -->
+        <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-meta">Aug 2023 – Jun 2027 (Expected)</div>
+            <h3 class="timeline-title">
+                Bachelor of Technology (B.Tech) in Computer Science & Engineering
+            </h3>
+            <p class="timeline-sub">
+                National Institute of Technology (NIT) Silchar, Assam
+            </p>
+            <p class="timeline-desc">
+                <strong>CGPA:</strong> 8.16 
+            </p>
+        </div>
+
+        <!-- Intermediate -->
+        <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-meta">Jul 2021 – Jun 2023</div>
+            <h3 class="timeline-title">
+                Higher Secondary Certificate (Class XII)
+            </h3>
+            <p class="timeline-sub">
+                Sri Chaitanya Junior College, Vijayawada, Andhra Pradesh
+            </p>
+            <p class="timeline-desc">
+                <strong>Percentage:</strong> 98.1%
+            </p>
+        </div>
+
+        <!-- SSC -->
+        <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-meta">Jun 2011 – May 2021</div>
+            <h3 class="timeline-title">
+                Secondary School Certificate (Class X)
+            </h3>
+            <p class="timeline-sub">
+                Sri Chaitanya Techno School, Amalapuram, Andhra Pradesh
+            </p>
+            <p class="timeline-desc">
+                <strong>Percentage:</strong> 99%
+            </p>
+        </div>
+
+    </div>
+</section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="reveal" style="border-bottom: none;">
+            <p class="section-label">Connect</p>
+            <h2 class="section-title">Start a Conversation</h2>
+            <div class="contact-box">
+                <div class="contact-row">
+                    <span class="contact-label">Email</span>
+                    <a href="mailto:akkala_ug_23@cse.nits.ac.in" class="contact-value">akkala_ug_23@cse.nits.ac.in</a>
+                </div>
+                <div class="contact-row">
+                    <span class="contact-label">LinkedIn</span>
+                    <a href="https://www.linkedin.com/in/varshit-sai-akkala-7244b028a" target="_blank" rel="noopener" class="contact-value">varshit-sai-akkala-7244b028a</a>
+                </div>
+                <div class="contact-row">
+                    <span class="contact-label">GitHub</span>
+                    <a href="https://github.com/varshit123A" target="_blank" rel="noopener" class="contact-value">varshit123A</a>
+                </div>
+                <div class="contact-row">
+                    <span class="contact-label">Current Base</span>
+                    <span class="contact-value">NIT Silchar (Assam) / Amalapuram (A.P.)</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Akkala Varshit Sai. Engineered with absolute precision.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts for dynamic functionality & styling -->
+    <script>
+        // Dark Mode Toggle Logic
+        const themeToggle = document.getElementById('theme-toggle');
+        const htmlElement = document.documentElement;
+
+        themeToggle.addEventListener('click', () => {
+            if (htmlElement.classList.contains('dark')) {
+                htmlElement.classList.remove('dark');
+                themeToggle.innerHTML = `<svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707M16.243 17.657l.707.707M6.343 6.343l.707-.707M14.142 12a2.142 2.142 0 11-4.285 0 2.142 2.142 0 014.285 0z" /></svg>`;
+            } else {
+                htmlElement.classList.add('dark');
+                themeToggle.innerHTML = `<svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" /></svg>`;
+            }
+        });
+
+        // Scroll Reveal Animation Engine
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealOnScroll = () => {
+            revealElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                if (elementTop < windowHeight - 100) {
+                    element.classList.add('active');
+                }
+            });
+        };
+        window.addEventListener('scroll', revealOnScroll);
+        window.addEventListener('load', revealOnScroll);
+
+        // Async Live GitHub Repos Fetcher
+        async function fetchGitHubRepos() {
+            const username = 'varshit123A';
+            const targetContainer = document.getElementById('github-projects');
+            
+            try {
+                const response = await fetch(`https://api.github.com/users/${username}/repos?sort=updated&per_page=6`);
+                if (!response.ok) throw new Error('Network error');
+                const repos = await response.json();
+                
+                if(repos.length > 0) {
+                    targetContainer.innerHTML = ''; // Clean fallback items if repos exist
+                    
+                    repos.forEach(repo => {
+                        if (!repo.fork) {
+                            const description = repo.description || "A pristine repository housing development components and engineering frameworks.";
+                            const language = repo.language || "Source";
+                            const card = document.createElement('a');
+                            card.href = repo.html_url;
+                            card.target = "_blank";
+                            card.className = "project-card reveal active";
+                            card.innerHTML = `
+                                <div class="project-content">
+                                    <div class="project-header">
+                                        <h3 class="project-title">${repo.name}</h3>
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                                    </div>
+                                    <p class="project-desc">${description}</p>
+                                </div>
+                                <div class="project-footer">
+                                    <span class="project-lang"><span class="lang-dot"></span>${language}</span>
+                                    <span>View Repository</span>
+                                </div>
+                            `;
+                            targetContainer.appendChild(card);
+                        }
+                    });
+                }
+            } catch (error) {
+                console.log('Using robust UI static fallbacks for repository visualization.', error);
+            }
+        }
+        
+        fetchGitHubRepos();
+    </script>
+</body>
+</html>
